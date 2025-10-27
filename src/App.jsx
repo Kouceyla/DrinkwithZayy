@@ -2,14 +2,16 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WheelCard from "./components/WheelCard";
-import { wheelData } from "./wheelData"; // On sépare les données
+import { wheelData } from "./wheelData";
+import { ThemeProvider } from "./components/ThemeProvider"; // 1. Importer le Provider
+import { Toaster } from "@/components/ui/sonner"; // 2. Importer le Toaster
 
 function App() {
   return (
-    <>
+    // 3. Entourer l'application avec le Provider
+    <ThemeProvider>
       <Header />
       <main className="p-4 sm:p-6 flex flex-wrap justify-center items-start gap-8">
-        {/* On crée une carte pour chaque boisson dans nos données */}
         {wheelData.map((data) => (
           <WheelCard
             key={data.id}
@@ -22,7 +24,9 @@ function App() {
         ))}
       </main>
       <Footer />
-    </>
+      {/* 4. Ajouter le Toaster pour que les notifications s'affichent */}
+      <Toaster richColors closeButton sound />
+    </ThemeProvider>
   );
 }
 

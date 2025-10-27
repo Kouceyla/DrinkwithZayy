@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { useTheme } from "next-themes"; // 1. Importer useTheme
+import { toast } from "sonner"; // 2. Importer toast
 
-// Icônes SVG pour la lune et le soleil
+// Icônes SVG pour la lune et le soleil (inchangées)
 const MoonIcon = () => (
   <svg
     className="w-6 h-6"
@@ -17,7 +19,6 @@ const MoonIcon = () => (
     />
   </svg>
 );
-
 const SunIcon = () => (
   <svg
     className="w-6 h-6"
@@ -36,30 +37,22 @@ const SunIcon = () => (
 );
 
 function ThemeToggle() {
-  // On lit l'état initial depuis la classe <html> (définie par le script dans index.html)
-  const [isDark, setIsDark] = useState(
-    document.documentElement.classList.contains("dark")
-  );
+  // 3. Utiliser le hook pour gérer le thème
+  const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    // 1. Jouer le son
-    const audio = document.getElementById("toggle-sound");
-    if (audio) {
-      audio.currentTime = 0;
-      audio.play().catch((e) => console.error("Erreur audio:", e));
-    }
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
 
-    // 2. Basculer l'état
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-
-    // 3. Mettre à jour la classe <html> et le localStorage
-    if (newIsDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
+    // 4. Appeler la notification sonner
+    if (newTheme === "dark") {
+      toast.message("Mode sombre activé 🌙", {
+        description: "Bonne nuit !",
+      });
     } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
+      toast.message("Mode clair activé ☀️", {
+        description: "Bonjour !",
+      });
     }
   };
 
@@ -70,7 +63,8 @@ function ThemeToggle() {
       className="absolute top-6 right-6 p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 z-20"
       aria-label="Changer de thème"
     >
-      {isDark ? <SunIcon /> : <MoonIcon />}
+      {/* 5. Gérer l'icône en fonction du thème */}
+      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
     </button>
   );
 }

@@ -1,14 +1,76 @@
-/* 1. Importations de base de Tailwind */
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Styles personnalisés (de votre ancien style.css) */
+@layer base {
+  :root {
+    /* Mode Clair : Blanc cassé -> Gris très léger */
+    --background: 0 0% 100%; /* Blanc */
+    --foreground: 240 10% 3.9%; /* Presque noir */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 97.5%; /* Gris un peu plus doux */
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+ 
+  /* THÈME BLEU NUIT (Plus profond) */
+  .dark {
+    --background: 224 71% 4%;   /* Bleu très sombre (presque noir) */
+    --foreground: 210 40% 98%; /* Blanc cassé */
+    --card: 224 71% 4%; /* Fond de carte idem */
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 224 71% 4%;
+    --secondary: 224 71% 9%;  /* Bleu nuit un peu plus clair */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 224 71% 9%;
+    --muted-foreground: 215 28% 47%;
+    --accent: 224 71% 9%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 33% 17%; /* Bordures un peu plus visibles */
+    --input: 217 33% 17%;
+    --ring: 217 33% 17%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+     /* Assure une transition douce des couleurs de fond */
+    @apply transition-colors duration-300;
+  }
+}
+
+/* VOS ANCIENNES ANIMATIONS */
 @layer utilities {
-  /* Animation de fond */
+  /* Animation de fond (utilise les variables du thème) */
   .animated-bg {
+    /* Le dégradé utilise maintenant les variables --background et --secondary */
+    background: linear-gradient(120deg, hsl(var(--background)), hsl(var(--secondary)));
     background-size: 200% 200%;
-    animation: bgMove 10s ease infinite;
+    animation: bgMove 15s ease infinite; /* Durée augmentée pour plus de douceur */
   }
 
   @keyframes bgMove {
@@ -21,8 +83,9 @@
     }
   }
 
-  /* Pointeur de la roulette */
+  /* Pointeur de la roulette (Inchangé) */
   .roulette::after {
+    /* ... */
     content: "";
     position: absolute;
     top: -10px;
@@ -36,103 +99,23 @@
   }
 
   @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.3;
-    }
+    /* ... */
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
-  /* Classes pour l'apparition du résultat (contrôlées par React) */
-  .result-anim {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.5s ease,
-      transform 0.4s cubic-bezier(0.21, 1.5, 0.73, 1.5);
-  }
-  .result-anim.visible {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  /* Classes pour le bouton de partage */
+  /* Classes pour le bouton de partage (Inchangé) */
   .share-button {
+     /* ... */
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.4s ease, transform 0.4s ease;
     transition-delay: 0ms;
   }
-
   .share-button.visible {
+     /* ... */
     opacity: 1;
     transform: scale(1);
     transition-delay: 200ms;
-  }
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
