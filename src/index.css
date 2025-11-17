@@ -30,25 +30,31 @@
  
   /* THÈME BLEU NUIT (Plus profond) */
   .dark {
-    --background: 224 71% 4%;   /* Bleu très sombre (presque noir) */
+    --background: 240 10% 3.9%;   /* Gris très sombre (presque noir) */
     --foreground: 210 40% 98%; /* Blanc cassé */
-    --card: 224 71% 4%; /* Fond de carte idem */
+    
+    /* Les cartes utiliseront des couleurs custom, mais on garde une base */
+    --card: 240 4.8% 9.5%; /* Gris un peu plus clair */
     --card-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
+    
+    --popover: 240 10% 3.9%;
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
-    --primary-foreground: 224 71% 4%;
-    --secondary: 224 71% 9%;  /* Bleu nuit un peu plus clair */
+    --primary-foreground: 240 10% 3.9%;
+    
+    /* On rend le "secondary" plus subtil pour les boutons */
+    --secondary: 240 4.8% 12.5%;  /* Gris (plus clair que le fond) */
     --secondary-foreground: 210 40% 98%;
-    --muted: 224 71% 9%;
+    
+    --muted: 240 4.8% 12.5%;
     --muted-foreground: 215 28% 47%;
-    --accent: 224 71% 9%;
+    --accent: 240 4.8% 12.5%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 217 33% 17%; /* Bordures un peu plus visibles */
-    --input: 217 33% 17%;
-    --ring: 217 33% 17%;
+    --border: 240 4.8% 12.5%; /* Bordures un peu plus visibles */
+    --input: 240 4.8% 12.5%;
+    --ring: 240 4.8% 12.5%;
   }
 }
  
@@ -117,5 +123,8 @@
     opacity: 1;
     transform: scale(1);
     transition-delay: 200ms;
+  }
+  .recipe-text {
+    white-space: pre-wrap;
   }
 }
