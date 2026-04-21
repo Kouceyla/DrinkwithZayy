@@ -1,62 +1,66 @@
-// src/wheelData.js
-
 export const wheelData = [
   {
     id: "matcha",
     title: "Matcha",
     emoji: "🍵",
     items: [
-      { 
-        name: "Matcha Latte Vanille", 
-        image: "/images/matcha/matcha-vanille.jpg", // À FAIRE: Mettez le bon chemin d'image
-        recipe: "1. Mélangez 1 cuillère à café de matcha avec 50ml d'eau chaude.\n2. Ajoutez 1 cuillère de sirop de vanille.\n3. Versez 200ml de lait (chaud ou froid) et dégustez !" 
+      {
+        name: "Matcha Latte Vanille",
+        image: "/images/Matcha-vanille.png",
+        recipe: "1. Tamisez 1 c. à café de matcha dans un bol.\n2. Versez 60ml d'eau à 70°C (pas bouillante) et fouettez en zigzag jusqu'à obtenir une mousse verte et lisse.\n3. Ajoutez 1 c. à soupe de sirop de vanille.\n4. Versez 200ml de lait chaud (ou lait d'avoine froid pour une version glacée).\n5. Mélangez doucement et dégustez aussitôt.",
       },
-      { 
-        name: "Matcha Latte Coco", 
-        image: "/images/placeholder.jpg", // À FAIRE: Mettez le bon chemin d'image
-        recipe: "Description de la recette à venir..." // À FAIRE: Mettez la recette
+      {
+        name: "Matcha Latte Coco",
+        image: "/images/matcha-coco.png",
+        recipe: "1. Tamisez 1 c. à café de matcha et fouettez avec 60ml d'eau à 70°C jusqu'à mousse lisse.\n2. Faites chauffer 200ml de lait de coco à feu doux (ne pas bouillir).\n3. Ajoutez 1 c. à café de sirop d'agave ou de sucre de coco.\n4. Versez le lait de coco chaud sur le matcha.\n5. Parsemez de copeaux de noix de coco grillée pour la finition.",
       },
-      // ... (Complétez les autres boissons matcha ici)
-      { name: "Matcha Latte Passion", image: "/images/placeholder.jpg", recipe: "Recette à venir..." }
+      {
+        name: "Matcha Latte Passion",
+        image: "/images/matcha-passion.png",
+        recipe: "1. Préparez le matcha : fouettez 1 c. à café avec 60ml d'eau à 70°C jusqu'à mousse dense.\n2. Dans un grand verre, versez 3 c. à soupe de purée de fruit de la passion (ou sirop).\n3. Remplissez le verre de glaçons.\n4. Versez 150ml de lait d'avoine bien froid.\n5. Faites couler le matcha doucement par-dessus — l'effet de couches est la signature de ce latte !",
+      },
     ],
-    // Palette Verte/Bleue douce
-    colors: ["#6EE7B7", "#3B82F6", "#93C5FD"], // Emerald-300, Blue-500, Blue-300
+    colors: ["#6EE7B7", "#3B82F6", "#93C5FD"],
   },
   {
     id: "cafe",
     title: "Café",
     emoji: "☕",
     items: [
-      { 
-        name: "Coffee Latte Speculos", 
-        image: "/images/IceCofeeSpeculos.jpg", // À FAIRE: Mettez le bon chemin d'image
-        recipe: "1. Préparez un espresso.\n2. Ajoutez 2 cuillères de sauce caramel au fond d'une tasse.\n3. Versez l'espresso.\n4. Ajoutez 200ml de lait chaud moussé." 
+      {
+        name: "Coffee Latte Speculoos",
+        image: "/images/IceCofeeSpeculos.jpg",
+        recipe: "1. Préparez un double espresso (60ml).\n2. Au fond d'un grand verre, déposez 2 c. à soupe de pâte de speculoos et un filet de sirop caramel.\n3. Versez l'espresso chaud directement sur la pâte et remuez pour bien dissoudre.\n4. Ajoutez une généreuse quantité de glaçons.\n5. Versez 200ml de lait entier froid en le faisant couler sur le dos d'une cuillère pour un bel effet.\n6. Ajoutez quelques miettes de speculoos sur le dessus.",
       },
-      { 
-        name: "Coffee Latte Caramel Salé", 
-        image: "/images/placeholder.jpg", // À FAIRE: Mettez le bon chemin d'image
-        recipe: "Description de la recette à venir..." // À FAIRE: Mettez la recette
+      {
+        name: "Coffee Latte Caramel Salé",
+        image: "/images/matcha-caramel-sale.png",
+        recipe: "1. Préparez un double espresso (60ml).\n2. Dans une casserole, faites fondre 2 c. à soupe de sucre brun avec 1 c. à soupe de beurre demi-sel jusqu'à caramel doré. Ajoutez 2 c. à soupe de crème liquide et mélangez.\n3. Déposez 1 c. à soupe de sauce caramel salé au fond de votre verre.\n4. Versez l'espresso et remuez.\n5. Faites mousser 200ml de lait entier et versez délicatement.\n6. Terminez avec un filet de caramel et une pincée de fleur de sel.",
       },
-      // ... (Complétez les autres boissons café ici)
-      { name: "Coffee Latte Brown Sugar", image: "/images/placeholder.jpg", recipe: "Recette à venir..." }
+      {
+        name: "Coffee Latte Brown Sugar",
+        image: "/images/coffee-latte-brown-sugar.png",
+        recipe: "1. Préparez un sirop : faites fondre 2 c. à soupe de sucre roux avec 1 c. à soupe d'eau chaude. Remuez jusqu'à dissolution complète.\n2. Versez le sirop chaud au fond d'un grand verre.\n3. Préparez un double espresso et versez-le sur le sirop — ne mélangez pas encore.\n4. Remplissez le verre de glaçons.\n5. Versez 200ml de lait d'avoine bien froid par-dessus.\n6. Remuez légèrement pour créer l'effet marbré caramel, puis dégustez.",
+      },
     ],
-    // Palette Or/Orange chaude
-    colors: ["#FBBF24", "#F59E0B", "#D97706"], // Amber-400, Amber-500, Amber-600
+    colors: ["#FBBF24", "#F59E0B", "#D97706"],
   },
   {
     id: "bubble",
     title: "Bubble Tea",
     emoji: "🧋",
     items: [
-      { 
-        name: "Thé noir / Passion", 
-        image: "/images/bubble/bubble-passion.jpg", // À FAIRE: Mettez le bon chemin d'image
-        recipe: "1. Préparez 200ml de thé noir infusé et refroidi.\n2. Ajoutez 50ml de sirop de fruit de la passion.\n3. Ajoutez des perles de tapioca cuites.\n4. Secouez avec des glaçons et servez !" 
+      {
+        name: "Thé Noir / Passion",
+        image: "/images/the-noir-passion-bubble-tea.png",
+        recipe: "1. Faites infuser 2 sachets de thé noir dans 250ml d'eau bouillante pendant 5 min, puis laissez refroidir complètement.\n2. Faites cuire les perles de tapioca selon le paquet (généralement 5 min dans l'eau bouillante). Égouttez et mélangez avec 1 c. à café de miel.\n3. Déposez les perles au fond d'un grand verre.\n4. Ajoutez 3 c. à soupe de sirop ou purée de fruit de la passion.\n5. Versez le thé froid, ajoutez des glaçons.\n6. Secouez (ou remuez) vigoureusement et servez avec une grosse paille.",
       },
-      // ... (Complétez les autres boissons bubble tea ici)
-      { name: "Brown Sugar Latte", image: "/images/placeholder.jpg", recipe: "Recette à venir..." }
+      {
+        name: "Brown Sugar Latte",
+        image: "/images/placeholder.jpg",
+        recipe: "1. Faites cuire les perles de tapioca selon le paquet. Égouttez.\n2. Dans une petite casserole, faites caraméliser 3 c. à soupe de sucre brun avec 2 c. à soupe d'eau jusqu'à obtenir un sirop épais et brillant.\n3. Mélangez les perles encore chaudes avec le sirop de sucre brun — elles doivent être bien enrobées.\n4. Déposez les perles au fond d'un grand verre en les laissant couler sur les parois pour l'effet visuel signature.\n5. Ajoutez des glaçons, puis versez 300ml de lait entier bien froid.\n6. Ne remuez pas trop — l'effet marbré caramel/lait est la beauté du Brown Sugar Latte.",
+      },
     ],
-    // Palette Rose/Violet vibrante
-    colors: ["#F472B6", "#EC4899", "#DB2777"], // Pink-400, Pink-500, Pink-600
+    colors: ["#F472B6", "#EC4899", "#DB2777"],
   },
 ];

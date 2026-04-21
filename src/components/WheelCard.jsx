@@ -114,23 +114,22 @@ function WheelCard({ id, title, emoji, items, colors, onDrinkSelected }) {
         ></div>
       </div>
       {/* ... (button Lancer inchangé) */}
-      <button
-        onClick={spin}
-        disabled={isSpinning}
-        className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 px-8 rounded-lg text-lg mt-4 cursor-pointer transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed select-none focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 dark:focus:ring-offset-background"
-      >
-        {isSpinning ? "Ça tourne..." : "Lancer"}
-      </button>
-      
-      {/* ... (div bouton Partager inchangée) */}
-      <div className="h-20 mt-4 flex flex-col justify-center items-center">
+      <div className="flex gap-2 mt-4 w-full">
+        <button
+          onClick={spin}
+          disabled={isSpinning}
+          className="flex-1 bg-gradient-to-r from-brand-pink to-brand-pink-dark text-white font-bold py-3.5 px-8 rounded-xl text-base cursor-pointer transition-all hover:brightness-110 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-pink/30 disabled:opacity-45 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none select-none focus:outline-none focus:ring-2 focus:ring-brand-pink focus:ring-offset-2 dark:focus:ring-offset-background"
+        >
+          {isSpinning ? "En cours..." : "Lancer ✦"}
+        </button>
         <button
           onClick={share}
-          className={`share-button mt-2 text-sm text-pink-600 dark:text-pink-400 hover:underline ${
-            showResult ? "visible" : "" 
+          className={`share-button w-12 h-12 flex items-center justify-center rounded-xl bg-foreground/8 border border-foreground/15 text-foreground hover:bg-foreground/15 transition-all ${
+            showResult ? "visible" : ""
           }`}
+          title="Partager"
         >
-          Partager ↗
+          ↗
         </button>
       </div>
     </motion.section>

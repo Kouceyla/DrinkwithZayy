@@ -9,6 +9,10 @@ export default {
   darkMode: ['class', "class"],
   theme: {
   	extend: {
+  		fontFamily: {
+  			serif: ['"Playfair Display"', 'Georgia', 'serif'],
+  			sans:  ['Nunito', 'system-ui', 'sans-serif'],
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -48,6 +52,8 @@ export default {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
+  			'brand-pink':      '#f4a7b9',
+  			'brand-pink-dark': '#e8738e',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',

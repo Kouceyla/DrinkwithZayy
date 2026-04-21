@@ -2,8 +2,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="text-center p-6 text-sm text-gray-500 dark:text-gray-400">
-      <p>&copy; 2025 Drink with Zay</p>
+    <footer className="text-center py-10 px-4 text-sm text-muted-foreground font-sans">
+      Made with ☕ by Zay
     </footer>
   );
 }
