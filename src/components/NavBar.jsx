@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { to: "/",            label: "Accueil",      exact: true },
-  { to: "/recettes",    label: "Recettes" },
+  { to: "/",             label: "Accueil",       exact: true },
+  { to: "/recettes",     label: "Recettes" },
   { to: "/degustations", label: "Dégustations" },
+  { to: "/a-propos",     label: "À propos" },
 ];
 
 function NavBar({ sticky = false }) {
