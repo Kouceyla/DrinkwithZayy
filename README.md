@@ -1,16 +1,46 @@
-# React + Vite
+# Drink with Zay
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site personnel autour de ma passion pour les boissons artisanales — matcha, café, bubble tea.
 
-Currently, two official plugins are available:
+🌐 **[drinkwith-zayy.vercel.app](https://drinkwith-zayy.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Ce que propose le site
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Roue des boissons** — une roue aléatoire par catégorie pour choisir sa prochaine boisson
+- **Recettes** — toutes les recettes détaillées avec temps de préparation, niveau de difficulté et variantes chaud/glacé
+- **Dégustations** — un journal des coffee shops testés, notés par Zay et Kouceyla
+- **Favoris** — sauvegarde des boissons préférées en local (localStorage)
+- **Recherche** — filtre les recettes par nom en temps réel
+- **PWA** — installable sur mobile comme une vraie application
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Stack technique
+
+| Outil | Rôle |
+|---|---|
+| React 18 + Vite | Framework et bundler |
+| Tailwind CSS | Styles utilitaires |
+| Framer Motion | Animations |
+| react-router-dom v6 | Navigation |
+| vite-plugin-pwa | Service worker + manifest |
+| Vercel | Hébergement + CI/CD |
+
+---
+
+## Lancer le projet en local
+
+```bash
+npm install
+npm run dev
+```
+
+Le site est accessible sur `http://localhost:5173`.
+
+---
+
+## Déploiement
+
+Le déploiement est automatique via Vercel. Un `git push` sur la branche `main` suffit à mettre à jour le site en production.
