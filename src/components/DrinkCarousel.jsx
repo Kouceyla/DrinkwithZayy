@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
@@ -22,6 +22,13 @@ function DrinkCarousel({ id, title, emoji, items, onDrinkSelected }) {
   const [dir, setDir] = useState(1);
   const [spinning, setSpinning] = useState(false);
   const [settled, setSettled] = useState(false);
+  const [vw, setVw] = useState(() => typeof window !== "undefined" ? window.innerWidth : 768);
+
+  useEffect(() => {
+    const fn = () => setVw(window.innerWidth);
+    window.addEventListener("resize", fn, { passive: true });
+    return () => window.removeEventListener("resize", fn);
+  }, []);
 
   const go = (idx, d = 1) => { if (!spinning) { setDir(d); setCur(((idx % n) + n) % n); } };
 
@@ -44,48 +51,62 @@ function DrinkCarousel({ id, title, emoji, items, onDrinkSelected }) {
     });
   };
 
+  const isMobile = vw < 640;
   const slots = [(cur - 1 + n) % n, cur, (cur + 1) % n];
+  const cW = isMobile ? Math.min(vw - 96, 260) : 240;
+  const cH = isMobile ? Math.round(cW * 1.25) : 300;
 
   return (
     <div className="w-full">
-      <div className="flex items-baseline justify-between pb-3 border-b border-foreground/10 mb-7">
-        <span className="font-serif text-xl font-bold text-foreground">{emoji} {title}</span>
+      <div className="flex items-baseline justify-between pb-3 border-b border-foreground/10 mb-6">
+        <span className="font-serif text-lg md:text-xl font-bold text-foreground">{emoji} {title}</span>
         <span className="text-sm text-muted-foreground">
           <span className="text-foreground font-bold">{String(cur + 1).padStart(2, "0")}</span>
           /{String(n).padStart(2, "0")}
         </span>
       </div>
 
-      <div className="relative flex items-center justify-center h-[340px] overflow-hidden">
+      {/* Carousel */}
+      <div className="relative flex items-center justify-center overflow-hidden"
+        style={{ height: isMobile ? cH + 16 : 340 }}>
         <Arrow side="l" onClick={() => go(cur - 1, -1)} disabled={spinning} />
-        <div className="flex items-center justify-center gap-4 w-full px-12">
-          {slots.map((idx, pos) => {
+
+        <div className={`flex items-center justify-center w-full ${isMobile ? "px-10" : "gap-4 px-12"}`}>
+          {(isMobile ? [1] : [0, 1, 2]).map((pos) => {
+            const idx = slots[pos];
             const center = pos === 1;
             return (
               <motion.div key={center ? `c-${cur}` : `${pos}-${idx}`}
                 className="relative flex-shrink-0 rounded-[20px] overflow-hidden cursor-pointer"
                 style={{ background: pals[idx % pals.length], zIndex: center ? 3 : 2 }}
                 initial={center ? { x: dir * 80, opacity: 0.3 } : false}
-                animate={{ x: 0, width: center ? 240 : 170, height: center ? 300 : 220, opacity: center ? 1 : 0.55 }}
+                animate={{ x: 0, width: center ? cW : 170, height: center ? cH : 220, opacity: center ? 1 : 0.55 }}
                 transition={{ duration: 0.35, ease: [0.34, 1.2, 0.64, 1] }}
                 onClick={() => { if (pos === 0) go(cur - 1, -1); if (pos === 2) go(cur + 1, 1); }}>
                 <img src={items[idx].image} alt={items[idx].name}
                   className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => { e.currentTarget.style.display = "none"; }} />
-                <div className="absolute inset-0 flex items-center justify-center" style={{ fontSize: center ? "4rem" : "2.5rem", opacity: 0.25 }}>{emoji}</div>
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 50%)" }} />
+                <div className="absolute inset-0 flex items-center justify-center"
+                  style={{ fontSize: center ? (isMobile ? "3rem" : "4rem") : "2.5rem", opacity: 0.25 }}>{emoji}</div>
+                <div className="absolute inset-0"
+                  style={{ background: "linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 50%)" }} />
                 {center && (
                   <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 5 }}>
-                    <div className="absolute top-0 bottom-0 w-1/3" style={{ background: "linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent)", animation: "shimmer 3.5s ease-in-out infinite" }} />
+                    <div className="absolute top-0 bottom-0 w-1/3"
+                      style={{ background: "linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent)", animation: "shimmer 3.5s ease-in-out infinite" }} />
                   </div>
                 )}
                 <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                  <span className="font-serif font-bold text-white leading-tight" style={{ fontSize: center ? "1.1875rem" : ".875rem" }}>{items[idx].name}</span>
+                  <span className="font-serif font-bold text-white leading-tight"
+                    style={{ fontSize: center ? (isMobile ? "1rem" : "1.1875rem") : ".875rem" }}>
+                    {items[idx].name}
+                  </span>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
         <Arrow side="r" onClick={() => go(cur + 1, 1)} disabled={spinning} />
       </div>
 
@@ -102,7 +123,7 @@ function DrinkCarousel({ id, title, emoji, items, onDrinkSelected }) {
           {spinning ? "En cours..." : "Lancer ✦"}
         </button>
         <button
-          className={`share-button w-12 h-12 flex items-center justify-center rounded-xl bg-foreground/[.08] border border-foreground/15 text-foreground hover:bg-foreground/[.18] transition-all ${settled ? "visible" : ""}`}
+          className={`w-12 h-12 flex items-center justify-center rounded-xl bg-foreground/[.08] border border-foreground/15 text-foreground hover:bg-foreground/[.18] transition-all ${settled ? "opacity-100" : "opacity-40"}`}
           onClick={() => settled && window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Je viens de tirer "${items[cur].name}" sur Drink with Zay ! 🍹`)}`, "_blank")}>
           ↗
         </button>

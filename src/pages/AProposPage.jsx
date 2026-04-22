@@ -16,7 +16,7 @@ function AProposPage() {
       <CursorGlow />
       <NavBar />
 
-      <main className="px-[8vw] py-20 max-w-3xl mx-auto">
+      <main className="px-4 md:px-[8vw] py-12 md:py-20 max-w-3xl mx-auto">
         <motion.div initial="hidden" animate="visible" variants={stagger} className="flex flex-col gap-8">
 
           <motion.div variants={fadeUp}>
@@ -36,8 +36,8 @@ function AProposPage() {
             Ce site, c'est ma façon de partager cette passion — tester des boissons, que ce soit dans un coffee shop découvert au hasard d'une balade ou dans ma propre cuisine un dimanche matin. J'aime autant l'expérience d'un endroit bien pensé que le plaisir de reproduire une recette chez moi et de la peaufiner jusqu'à ce qu'elle soit exactement comme je la veux.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="rounded-2xl bg-brand-pink/10 border border-brand-pink/20 p-7 flex flex-col gap-3">
-            <p className="font-serif text-2xl font-black text-foreground">Barista à mes heures perdues ☕</p>
+          <motion.div variants={fadeUp} className="rounded-2xl bg-brand-pink/10 border border-brand-pink/20 p-5 md:p-7 flex flex-col gap-3">
+            <p className="font-serif text-xl md:text-2xl font-black text-foreground">Barista à mes heures perdues ☕</p>
             <p className="text-muted-foreground leading-relaxed">
               J'ai appris à me faire mes propres lattes, à maîtriser la mousse de lait, à doser le sirop au millilitre près. Ce que j'aime dans le fait de préparer soi-même ses boissons, c'est qu'on devient exigeante — et qu'on ne peut plus jamais accepter quelque chose de médiocre sans le remarquer.
             </p>

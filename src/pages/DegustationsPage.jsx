@@ -200,7 +200,7 @@ function DegustationsPage() {
 
       <NavBar />
 
-      <main className="px-[8vw] py-16">
+      <main className="px-4 md:px-[8vw] py-12 md:py-16">
         <motion.div initial="hidden" animate="visible" variants={stagger} className="mb-10">
           <motion.p variants={fadeUp} className="text-xs font-bold tracking-[.12em] uppercase text-brand-pink mb-3">
             ✦ Journal de dégustation
@@ -208,7 +208,7 @@ function DegustationsPage() {
           <motion.h1 variants={fadeUp} className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-black text-foreground leading-tight mb-4 max-w-xl">
             Boissons goûtées
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-muted-foreground text-lg max-w-lg">
+          <motion.p variants={fadeUp} className="text-muted-foreground text-base md:text-lg max-w-lg">
             Nos découvertes dans les coffee shops — notées par Zay et Kouceyla.
           </motion.p>
         </motion.div>

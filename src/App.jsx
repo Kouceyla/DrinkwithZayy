@@ -30,7 +30,7 @@ function HomePage() {
         onDiscoverClick={() => document.getElementById("roues")?.scrollIntoView({ behavior: "smooth" })}
       />
 
-      <section id="roues" className="px-[8vw] pt-16 pb-20">
+      <section id="roues" className="px-4 md:px-[8vw] pt-12 md:pt-16 pb-16 md:pb-20">
         <ScrollReveal>
           <p className="text-xs font-bold tracking-[.12em] uppercase text-brand-pink mb-3">✦ Nos catégories</p>
           <h2 className="font-serif text-[clamp(1.75rem,3.5vw,2.75rem)] font-black text-foreground leading-tight mb-12 max-w-lg">

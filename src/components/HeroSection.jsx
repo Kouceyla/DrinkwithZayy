@@ -17,7 +17,7 @@ function HeroSection({ onDiscoverClick }) {
   }, []);
 
   return (
-    <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 items-center px-[8vw] gap-12 overflow-hidden pt-20">
+    <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 items-center px-4 md:px-[8vw] gap-8 md:gap-12 overflow-hidden pt-16 md:pt-20">
 
       {/* Orbes ambiants */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full pointer-events-none"
@@ -39,16 +39,16 @@ function HeroSection({ onDiscoverClick }) {
           <em className="italic text-brand-pink">boisson préférée</em><br />
           vous attend.
         </motion.h1>
-        <motion.p variants={fadeUp} className="text-muted-foreground text-lg leading-relaxed mb-9 max-w-md mx-auto md:mx-0">
+        <motion.p variants={fadeUp} className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 md:mb-9 max-w-md mx-auto md:mx-0">
           Laissez le hasard choisir — matcha, café, bubble tea. Lancez la roue et découvrez votre prochaine recette.
         </motion.p>
-        <motion.div variants={fadeUp} className="flex gap-3 flex-wrap items-center justify-center md:justify-start">
+        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-center md:justify-start">
           <button onClick={onDiscoverClick}
-            className="bg-foreground text-background rounded-full px-8 py-3.5 text-sm font-bold tracking-wide hover:bg-brand-pink hover:text-white transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-pink/30">
+            className="bg-foreground text-background rounded-full px-8 py-3.5 text-sm font-bold tracking-wide hover:bg-brand-pink hover:text-white transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-pink/30 text-center">
             Découvrir les boissons
           </button>
           <Link to="/recettes"
-            className="border border-foreground/30 text-foreground rounded-full px-7 py-3.5 text-sm font-semibold hover:border-foreground hover:bg-foreground/10 transition-all">
+            className="border border-foreground/30 text-foreground rounded-full px-7 py-3.5 text-sm font-semibold hover:border-foreground hover:bg-foreground/10 transition-all text-center">
             Voir les recettes
           </Link>
         </motion.div>
