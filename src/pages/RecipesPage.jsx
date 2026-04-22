@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Search } from "lucide-react";
 import { wheelData } from "../wheelData";
 import { ThemeProvider } from "../components/ThemeProvider";
-import ThemeToggle from "../components/ThemeToggle";
 import ScrollReveal from "../components/ScrollReveal";
 import CursorGlow from "../components/CursorGlow";
+import NavBar from "../components/NavBar";
 import { RecipeCard } from "../components/RecipeCard";
 import { useFavorites } from "../context/FavoritesContext";
 
