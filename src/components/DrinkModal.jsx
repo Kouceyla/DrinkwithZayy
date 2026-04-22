@@ -1,5 +1,9 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FavoriteButton } from "./FavoriteButton";
+
+const DIFFICULTY = { 1: "⭐ Facile", 2: "⭐⭐ Moyen", 3: "⭐⭐⭐ Expert" };
+const VARIANT_ICON = { Chaud: "🔥", Glacé: "🧊" };
 
 const CloseIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -7,8 +11,8 @@ const CloseIcon = () => (
   </svg>
 );
 
-const overlayVariants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
-const modalVariants  = {
+const overlayV = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
+const modalV   = {
   hidden:  { opacity: 0, scale: 0.85, y: 20 },
   visible: { opacity: 1, scale: 1,    y: 0  },
   exit:    { opacity: 0, scale: 0.85, y: 20 },
@@ -18,51 +22,41 @@ function DrinkModal({ data, isOpen, onClose }) {
   return (
     <AnimatePresence>
       {isOpen && data && (
-        <motion.div
-          key="overlay"
+        <motion.div key="overlay"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-[6px] p-4"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={overlayVariants}
-          transition={{ duration: 0.2 }}
-          onClick={onClose}
-        >
-          <motion.div
-            key="modal"
+          initial="hidden" animate="visible" exit="hidden"
+          variants={overlayV} transition={{ duration: 0.2 }} onClick={onClose}>
+          <motion.div key="modal"
             className="relative z-10 w-full max-w-[420px] rounded-2xl bg-card text-card-foreground border border-border/20 shadow-2xl overflow-hidden"
-            variants={modalVariants}
-            transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={onClose}
+            variants={modalV} transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+            onClick={(e) => e.stopPropagation()}>
+
+            <button onClick={onClose}
               className="absolute top-3 right-3 z-10 bg-background/70 border border-border/20 rounded-full w-8 h-8 flex items-center justify-center text-muted-foreground hover:bg-secondary transition-colors group"
-              aria-label="Fermer"
-            >
-              <div className="transition-transform duration-200 group-hover:rotate-90">
-                <CloseIcon />
-              </div>
+              aria-label="Fermer">
+              <div className="transition-transform duration-200 group-hover:rotate-90"><CloseIcon /></div>
             </button>
 
-            <div className="w-full h-56 bg-secondary flex items-center justify-center overflow-hidden">
-              <img
-                src={data.image}
-                alt={`Photo de ${data.name}`}
-                className="w-full h-full object-contain"
-              />
+            <div className="w-full h-56 bg-background flex items-center justify-center overflow-hidden">
+              <img src={data.image} alt={`Photo de ${data.name}`} className="w-full h-full object-contain" />
             </div>
 
             <div className="p-6">
-              <p className="text-xs font-bold uppercase tracking-[.1em] text-brand-pink mb-2">
-                Recette
-              </p>
-              <h3 className="font-serif text-2xl font-black text-foreground mb-4 leading-tight">
-                {data.name}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed recipe-text">
-                {data.recipe}
-              </p>
+              <div className="flex items-start justify-between mb-1">
+                <p className="text-xs font-bold uppercase tracking-[.1em] text-brand-pink">Recette</p>
+                <FavoriteButton name={data.name} />
+              </div>
+              <h3 className="font-serif text-2xl font-black text-foreground mb-2 leading-tight">{data.name}</h3>
+
+              <div className="flex items-center gap-3 flex-wrap mb-4">
+                <span className="text-xs text-muted-foreground bg-secondary rounded-full px-2.5 py-1">⏱ {data.prepTime} min</span>
+                <span className="text-xs text-muted-foreground bg-secondary rounded-full px-2.5 py-1">{DIFFICULTY[data.difficulty]}</span>
+                {data.variants?.map((v) => (
+                  <span key={v} className="text-xs text-muted-foreground bg-secondary rounded-full px-2.5 py-1">{VARIANT_ICON[v]} {v}</span>
+                ))}
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed recipe-text">{data.recipe}</p>
             </div>
           </motion.div>
         </motion.div>
