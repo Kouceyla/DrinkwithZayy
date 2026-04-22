@@ -24,6 +24,9 @@ function RecipesPage() {
           <img src="/images/logo.png" alt="Drink with Zay" className="h-16 dark:brightness-[1.3] transition-all" />
         </Link>
         <div className="flex items-center gap-4">
+          <Link to="/degustations" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+            Dégustations
+          </Link>
           <Link to="/" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
             ← Les roues
           </Link>

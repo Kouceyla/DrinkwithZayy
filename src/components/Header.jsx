@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 function Header() {
@@ -21,7 +22,15 @@ function Header() {
         alt="Drink with Zay"
         className="h-16 dark:brightness-[1.3] transition-all"
       />
-      <ThemeToggle />
+      <div className="flex items-center gap-5">
+        <Link to="/recettes" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+          Recettes
+        </Link>
+        <Link to="/degustations" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+          Dégustations
+        </Link>
+        <ThemeToggle />
+      </div>
     </nav>
   );
 }

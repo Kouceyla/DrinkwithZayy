@@ -11,6 +11,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import DrinkModal from "./components/DrinkModal";
 import RecipesPage from "./pages/RecipesPage";
+import DegustationsPage from "./pages/DegustationsPage";
 
 function HomePage() {
   const [modalData, setModalData] = useState(null);
@@ -62,6 +63,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/recettes" element={<RecipesPage />} />
+        <Route path="/degustations" element={<DegustationsPage />} />
       </Routes>
     </ThemeProvider>
   );
