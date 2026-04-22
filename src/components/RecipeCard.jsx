@@ -14,7 +14,7 @@ export function RecipeCard({ drink, category, delay = 0 }) {
           <img
             src={drink.image}
             alt={drink.name}
-            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 p-4"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={(e) => { e.currentTarget.style.display = "none"; }}
           />
           <div className="absolute inset-x-0 bottom-0 h-16" style={{ background: "linear-gradient(to top,hsl(var(--background)) 0%,transparent 100%)" }} />
