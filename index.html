@@ -49,7 +49,67 @@
     
     </head>
   
+  <style>
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #1a2d1a;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.55s ease;
+    }
+    html:not(.dark) #splash { background: #f0f5f0; }
+
+    #splash-logo {
+      width: 140px; height: 140px; object-fit: contain;
+      animation: splashPulse 2.2s ease-in-out infinite;
+      filter: drop-shadow(0 16px 40px rgba(244,167,185,0.25));
+    }
+    html:not(.dark) #splash-logo { filter: none; }
+
+    #splash-name {
+      font-family: Georgia, serif; font-style: italic;
+      font-size: 0.95rem; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(242,234,216,0.6);
+      margin-top: 14px;
+      opacity: 0; animation: splashFadeUp 0.7s ease 0.4s forwards;
+    }
+    html:not(.dark) #splash-name { color: rgba(30,60,30,0.55); }
+
+    .s-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: #f4a7b9;
+      animation: splashDot 1.4s ease-in-out infinite;
+    }
+    .s-dot:nth-child(2) { animation-delay: 0.18s; }
+    .s-dot:nth-child(3) { animation-delay: 0.36s; }
+
+    @keyframes splashPulse {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.07); }
+    }
+    @keyframes splashFadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes splashDot {
+      0%,80%,100% { transform: translateY(0);    opacity: 0.3; }
+      40%          { transform: translateY(-7px); opacity: 1;   }
+    }
+  </style>
+
   <body class="animated-bg select-none">
+
+    <!-- Splash screen (retiré par main.jsx après le premier rendu) -->
+    <div id="splash">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <img id="splash-logo" src="/images/logo.png" alt="Drink with Zay" />
+        <p id="splash-name">Drink with Zay</p>
+        <div style="display:flex;gap:9px;margin-top:26px">
+          <span class="s-dot"></span>
+          <span class="s-dot"></span>
+          <span class="s-dot"></span>
+        </div>
+      </div>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
