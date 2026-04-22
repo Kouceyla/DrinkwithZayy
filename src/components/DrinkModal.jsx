@@ -44,7 +44,7 @@ function DrinkModal({ data, isOpen, onClose }) {
             <div className="p-6">
               <div className="flex items-start justify-between mb-1">
                 <p className="text-xs font-bold uppercase tracking-[.1em] text-brand-pink">Recette</p>
-                <FavoriteButton name={data.name} />
+                <FavoriteButton name={data.name} variant="card" />
               </div>
               <h3 className="font-serif text-2xl font-black text-foreground mb-2 leading-tight">{data.name}</h3>
 
