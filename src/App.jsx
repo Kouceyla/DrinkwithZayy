@@ -8,6 +8,7 @@ import ScrollReveal from "./components/ScrollReveal";
 import CursorGlow from "./components/CursorGlow";
 import { wheelData } from "./wheelData";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { FavoritesProvider } from "./context/FavoritesContext";
 import { Toaster } from "@/components/ui/sonner";
 import DrinkModal from "./components/DrinkModal";
 import RecipesPage from "./pages/RecipesPage";
@@ -60,14 +61,16 @@ function HomePage() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/recettes" element={<RecipesPage />} />
-        <Route path="/degustations" element={<DegustationsPage />} />
-        <Route path="/a-propos" element={<AProposPage />} />
-      </Routes>
-    </ThemeProvider>
+    <FavoritesProvider>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/recettes" element={<RecipesPage />} />
+          <Route path="/degustations" element={<DegustationsPage />} />
+          <Route path="/a-propos" element={<AProposPage />} />
+        </Routes>
+      </ThemeProvider>
+    </FavoritesProvider>
   );
 }
 
