@@ -185,7 +185,15 @@ function TastingCard({ tasting, delay }) {
   );
 }
 
+const allCategories = ["Tous", ...Array.from(new Set(tastings.map((t) => t.category)))];
+
 function DegustationsPage() {
+  const [activeCategory, setActiveCategory] = useState("Tous");
+
+  const filtered = activeCategory === "Tous"
+    ? tastings
+    : tastings.filter((t) => t.category === activeCategory);
+
   return (
     <ThemeProvider>
       <CursorGlow />
@@ -193,7 +201,7 @@ function DegustationsPage() {
       <NavBar />
 
       <main className="px-[8vw] py-16">
-        <motion.div initial="hidden" animate="visible" variants={stagger} className="mb-14">
+        <motion.div initial="hidden" animate="visible" variants={stagger} className="mb-10">
           <motion.p variants={fadeUp} className="text-xs font-bold tracking-[.12em] uppercase text-brand-pink mb-3">
             ✦ Journal de dégustation
           </motion.p>
@@ -205,8 +213,25 @@ function DegustationsPage() {
           </motion.p>
         </motion.div>
 
+        {/* Filtres catégories */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {allCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                activeCategory === cat
+                  ? "bg-brand-pink/20 text-brand-pink-dark dark:text-brand-pink border border-brand-pink/30"
+                  : "text-muted-foreground hover:text-foreground hover:bg-foreground/8 border border-transparent"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tastings.map((tasting, i) => (
+          {filtered.map((tasting, i) => (
             <TastingCard key={tasting.id} tasting={tasting} delay={i * 60} />
           ))}
         </div>
