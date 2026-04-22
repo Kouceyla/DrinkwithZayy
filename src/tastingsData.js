@@ -52,7 +52,7 @@ export const tastings = [
     categoryEmoji: "☕",
     ratingZay: 5,
     ratingKouceyla: 1,
-    photos: [],
+    photos: ["/images/tastings/thecoffee.JPG"],
   },
   {
     id: "6",
@@ -63,7 +63,7 @@ export const tastings = [
     categoryEmoji: "💜",
     ratingZay: 8.3,
     ratingKouceyla: 8,
-    photos: [],
+    photos: ["/images/tastings/ubeisaka.JPG"],
   },
   {
     id: "7",
@@ -107,7 +107,7 @@ export const tastings = [
     categoryEmoji: "☕",
     ratingZay: 3,
     ratingKouceyla: 2,
-    photos: [],
+    photos: ["/images/tastings/icecoffecaramelalva.jpg"],
   },
   {
     id: "11",

@@ -102,7 +102,7 @@ function TastingCard({ tasting, delay }) {
                 <img
                   src={tasting.photos[0]}
                   alt={tasting.drinkName}
-                  className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 {tasting.photos.length > 1 && (
@@ -125,7 +125,7 @@ function TastingCard({ tasting, delay }) {
             <div className="flex gap-2 px-5 pb-2 -mt-1">
               {tasting.photos.slice(1).map((photo, i) => (
                 <button key={i} onClick={() => setLightboxIndex(i + 1)} className="w-12 h-12 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-pink transition-colors flex-shrink-0">
-                  <img src={photo} alt="" className="w-full h-full object-cover" />
+                  <img src={photo} alt="" className="w-full h-full object-cover object-center" />
                 </button>
               ))}
             </div>
