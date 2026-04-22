@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { wheelData } from "../wheelData";
 import { ThemeProvider } from "../components/ThemeProvider";
-import ThemeToggle from "../components/ThemeToggle";
 import ScrollReveal from "../components/ScrollReveal";
 import CursorGlow from "../components/CursorGlow";
+import NavBar from "../components/NavBar";
 import { RecipeCard } from "../components/RecipeCard";
 
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
@@ -19,20 +18,7 @@ function RecipesPage() {
     <ThemeProvider>
       <CursorGlow />
 
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-[8vw] py-[18px] bg-background/95 backdrop-blur-sm border-b border-foreground/10">
-        <Link to="/">
-          <img src="/images/logo.png" alt="Drink with Zay" className="h-16 dark:brightness-[1.3] transition-all" />
-        </Link>
-        <div className="flex items-center gap-4">
-          <Link to="/degustations" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
-            Dégustations
-          </Link>
-          <Link to="/" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
-            ← Les roues
-          </Link>
-          <ThemeToggle />
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="px-[8vw] py-16">
         <motion.div initial="hidden" animate="visible" variants={stagger}>
