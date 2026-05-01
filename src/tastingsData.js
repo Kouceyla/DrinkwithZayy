@@ -9,7 +9,7 @@ export const tastings = [
     description: "Un matcha bien dosé, ni trop amer ni trop sucré. Le café est lumineux et calme, parfait pour une vraie pause. On sent qu'ils prennent soin de la qualité du thé.",
     ratingZay: 7.2,
     ratingKouceyla: 5,
-    photos: [],
+    photos: ["/images/tastings/matcha_good_news.jpeg"],
   },
   {
     id: "2",
@@ -21,7 +21,7 @@ export const tastings = [
     description: "Texture crémeuse mais le matcha manquait de caractère, un peu trop discret. Le cadre d'Enghien est vraiment cosy et l'accueil chaleureux.",
     ratingZay: 3,
     ratingKouceyla: 6,
-    photos: [],
+    photos: ["/images/tastings/cafe_alva.jpeg"],
   },
   {
     id: "3",
@@ -33,7 +33,7 @@ export const tastings = [
     description: "Un coup de cœur. L'acidité du fruit de la passion contre la végétalité du matcha, c'est une combinaison qui fonctionne à merveille. Le visuel en couches est magnifique.",
     ratingZay: 10,
     ratingKouceyla: 8,
-    photos: [],
+    photos: ["/images/tastings/matcha_okido_boisson.jpeg"],
   },
   {
     id: "4",
@@ -45,7 +45,7 @@ export const tastings = [
     description: "Iconic. La terrasse du Palais Royal, le café soigné, le service impeccable — tout est à la hauteur de la réputation. Un endroit où on prend le temps.",
     ratingZay: 10,
     ratingKouceyla: 9,
-    photos: [],
+    photos: ["/images/tastings/matcha_cafe_kitsune.jpeg", "/images/tastings/latte_caramel_kitsune_cafe.jpeg"],
   },
   {
     id: "5",
@@ -69,7 +69,7 @@ export const tastings = [
     description: "Visuellement bluffant, goût surprenant. L'ube apporte une douceur florale vraiment unique qu'on ne retrouve nulle part ailleurs. Un endroit à part.",
     ratingZay: 8.3,
     ratingKouceyla: 8,
-    photos: ["/images/tastings/ubeisaka.JPG"],
+    photos: ["/images/tastings/ubeisaka.JPG", "/images/tastings/ube_latte_isaka.jpeg"],
   },
   {
     id: "7",
@@ -117,7 +117,7 @@ export const tastings = [
     description: "Trop caramélisé à notre goût — le sucre écrase complètement le café. Si t'aimes les boissons très douces, ça peut plaire, mais ce n'est pas notre préférence.",
     ratingZay: 3,
     ratingKouceyla: 2,
-    photos: ["/images/tastings/icecoffecaramelalva.jpg"],
+    photos: ["/images/tastings/icecoffecaramelalva.jpg", "/images/tastings/cafe_alva.jpeg"],
   },
   {
     id: "11",
@@ -153,7 +153,7 @@ export const tastings = [
     description: "Correct mais sans surprise. Honnête, bien fait, mais après le Saddle on ne peut pas s'empêcher de comparer. Il lui manque ce petit quelque chose.",
     ratingZay: 6,
     ratingKouceyla: 6,
-    photos: [],
+    photos: ["/images/tastings/matcha_okido_boisson.jpeg"],
   },
   {
     id: "14",
@@ -165,7 +165,7 @@ export const tastings = [
     description: "Frais, fruité, crémeux — tout ce qu'on attendait. La fraise est vraiment présente, pas artificielle du tout. Un incontournable quand on passe dans le 2e.",
     ratingZay: 10,
     ratingKouceyla: 8,
-    photos: [],
+    photos: ["/images/tastings/creamy_daily_fraise.jpeg"],
   },
   {
     id: "15",
