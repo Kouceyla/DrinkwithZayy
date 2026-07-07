@@ -44,7 +44,7 @@ function AProposPage() {
           </motion.div>
 
           <motion.p variants={fadeUp} className="text-lg text-muted-foreground leading-relaxed">
-            Drink with Zay, c'est donc à la fois un journal de dégustation, une collection de recettes que j'adore, et une petite roue du destin pour les jours où on ne sait pas quoi commander. C'est personnel, c'est honnête — et les notes sont vraies, même quand elles font mal.
+            Drink with Zay, c'est donc à la fois une collection de recettes que j'adore, et une petite roue du destin pour les jours où on ne sait pas quoi commander. C'est personnel, c'est honnête.
           </motion.p>
 
           <motion.p variants={fadeUp} className="font-serif text-xl font-bold text-foreground">

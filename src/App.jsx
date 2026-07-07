@@ -12,7 +12,6 @@ import { FavoritesProvider } from "./context/FavoritesContext";
 import { Toaster } from "@/components/ui/sonner";
 import DrinkModal from "./components/DrinkModal";
 import RecipesPage from "./pages/RecipesPage";
-import DegustationsPage from "./pages/DegustationsPage";
 import AProposPage from "./pages/AProposPage";
 
 function HomePage() {
@@ -66,7 +65,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recettes" element={<RecipesPage />} />
-          <Route path="/degustations" element={<DegustationsPage />} />
           <Route path="/a-propos" element={<AProposPage />} />
         </Routes>
       </ThemeProvider>
