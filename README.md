@@ -10,7 +10,7 @@ Site personnel autour de ma passion pour les boissons artisanales — matcha, ca
 
 - **Roue des boissons** — une roue aléatoire par catégorie pour choisir sa prochaine boisson
 - **Recettes** — toutes les recettes détaillées avec temps de préparation, niveau de difficulté et variantes chaud/glacé
-- **Dégustations** — un journal des coffee shops testés, notés par Zay et Kouceyla
+- **Dégustations** — un journal des coffee shops testés, notés par Zay
 - **Favoris** — sauvegarde des boissons préférées en local (localStorage)
 - **Recherche** — filtre les recettes par nom en temps réel
 - **PWA** — installable sur mobile comme une vraie application
