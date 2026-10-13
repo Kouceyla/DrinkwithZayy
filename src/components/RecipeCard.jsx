@@ -14,11 +14,12 @@ export function RecipeCard({ drink, category, delay = 0 }) {
         transition={{ duration: 0.2 }}
         className="rounded-2xl overflow-hidden bg-card border border-border/20 shadow-md flex flex-col group h-full"
       >
-        <div className="h-72 bg-background relative overflow-hidden flex items-center justify-center">
+        <div className="drink-frame h-72 relative overflow-hidden flex items-center justify-center">
           <img
             src={drink.image}
             alt={drink.name}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            className="drink-illustration h-full max-w-full aspect-square transition-transform duration-500 group-hover:scale-105"
             onError={(e) => { e.currentTarget.style.display = "none"; }}
           />
           <div className="absolute inset-x-0 bottom-0 h-16"

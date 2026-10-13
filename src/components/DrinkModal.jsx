@@ -37,8 +37,8 @@ function DrinkModal({ data, isOpen, onClose }) {
               <div className="transition-transform duration-200 group-hover:rotate-90"><CloseIcon /></div>
             </button>
 
-            <div className="w-full h-56 bg-background flex items-center justify-center overflow-hidden">
-              <img src={data.image} alt={`Photo de ${data.name}`} className="w-full h-full object-contain" />
+            <div className="drink-frame w-full h-64 flex items-center justify-center overflow-hidden">
+              <img src={data.image} alt={`Illustration de ${data.name}`} className="drink-illustration h-full max-w-full aspect-square" />
             </div>
 
             <div className="p-6">

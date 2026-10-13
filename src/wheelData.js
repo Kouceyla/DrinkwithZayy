@@ -6,7 +6,7 @@ export const wheelData = [
     items: [
       {
         name: "Matcha Latte Vanille",
-        image: "/images/Matcha-vanille.png",
+        image: "/images/drinks/matcha-vanille.webp",
         prepTime: 5,
         difficulty: 1,
         variants: ["Chaud", "Glacé"],
@@ -14,7 +14,7 @@ export const wheelData = [
       },
       {
         name: "Matcha Latte Coco",
-        image: "/images/matcha-coco.png",
+        image: "/images/drinks/matcha-coco.webp",
         prepTime: 7,
         difficulty: 1,
         variants: ["Chaud", "Glacé"],
@@ -22,7 +22,7 @@ export const wheelData = [
       },
       {
         name: "Matcha Latte Passion",
-        image: "/images/matcha-passion.png",
+        image: "/images/drinks/matcha-passion.webp",
         prepTime: 8,
         difficulty: 2,
         variants: ["Glacé"],
@@ -38,7 +38,7 @@ export const wheelData = [
     items: [
       {
         name: "Coffee Latte Speculoos",
-        image: "/images/IceCofeeSpeculos.jpg",
+        image: "/images/drinks/icecofeespeculos.webp",
         prepTime: 10,
         difficulty: 2,
         variants: ["Chaud", "Glacé"],
@@ -46,7 +46,7 @@ export const wheelData = [
       },
       {
         name: "Coffee Latte Caramel Salé",
-        image: "/images/matcha-caramel-sale.png",
+        image: "/images/drinks/matcha-caramel-sale.webp",
         prepTime: 12,
         difficulty: 2,
         variants: ["Chaud"],
@@ -54,7 +54,7 @@ export const wheelData = [
       },
       {
         name: "Coffee Latte Brown Sugar",
-        image: "/images/coffee-latte-brown-sugar.png",
+        image: "/images/drinks/coffee-latte-brown-sugar.webp",
         prepTime: 8,
         difficulty: 1,
         variants: ["Chaud", "Glacé"],
@@ -70,7 +70,7 @@ export const wheelData = [
     items: [
       {
         name: "Thé Noir / Passion",
-        image: "/images/the-noir-passion-bubble-tea.png",
+        image: "/images/drinks/the-noir-passion-bubble-tea.webp",
         prepTime: 15,
         difficulty: 2,
         variants: ["Glacé"],

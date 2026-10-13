@@ -137,6 +137,16 @@
   .recipe-text {
     white-space: pre-wrap;
   }
+  /* Cadre papier crème des illustrations : même teinte que le fond des aquarelles */
+  .drink-frame {
+    background: radial-gradient(ellipse at center, #fbf3e4 0%, #f5e8d2 100%);
+  }
+  /* Fond les bords de l'illustration dans le cadre (masque les écarts de teinte du papier) */
+  .drink-illustration {
+    object-fit: contain;
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at center, #000 80%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 55% at center, #000 80%, transparent 100%);
+  }
 }
 
 /* ── KEYFRAMES ───────────────────────────────────────────── */

@@ -59,7 +59,7 @@ function HeroSection({ onDiscoverClick }) {
         style={{ transform: `translateY(${scrollY * 0.08}px)` }}>
         <div className="overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.4)]"
           style={{ width: "min(420px,45vw)", height: "min(480px,52vw)", animation: "blobFloat 6s ease-in-out infinite, blobMorph 12s ease-in-out infinite" }}>
-          <img src="/images/IceCofeeSpeculos.jpg" alt="Boisson" className="w-full h-full object-cover" />
+          <img src="/images/drinks/icecofeespeculos.webp" alt="Boisson" className="w-full h-full object-cover" />
         </div>
       </div>
 

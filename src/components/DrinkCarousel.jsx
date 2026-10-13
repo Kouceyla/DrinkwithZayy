@@ -77,26 +77,23 @@ function DrinkCarousel({ id, title, emoji, items, onDrinkSelected }) {
             const center = pos === 1;
             return (
               <motion.div key={center ? `c-${cur}` : `${pos}-${idx}`}
-                className="relative flex-shrink-0 rounded-[20px] overflow-hidden cursor-pointer"
-                style={{ background: pals[idx % pals.length], zIndex: center ? 3 : 2 }}
+                className="drink-frame relative flex-shrink-0 flex flex-col rounded-[20px] overflow-hidden cursor-pointer"
+                style={{ zIndex: center ? 3 : 2 }}
                 initial={center ? { x: dir * 80, opacity: 0.3 } : false}
                 animate={{ x: 0, width: center ? cW : 170, height: center ? cH : 220, opacity: center ? 1 : 0.55 }}
                 transition={{ duration: 0.35, ease: [0.34, 1.2, 0.64, 1] }}
                 onClick={() => { if (pos === 0) go(cur - 1, -1); if (pos === 2) go(cur + 1, 1); }}>
                 <img src={items[idx].image} alt={items[idx].name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.style.display = "none"; }} />
-                <div className="absolute inset-0 flex items-center justify-center"
-                  style={{ fontSize: center ? (isMobile ? "3rem" : "4rem") : "2.5rem", opacity: 0.25 }}>{emoji}</div>
-                <div className="absolute inset-0"
-                  style={{ background: "linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 50%)" }} />
+                  className="drink-illustration w-full aspect-square flex-shrink-0"
+                  onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />
                 {center && (
                   <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 5 }}>
                     <div className="absolute top-0 bottom-0 w-1/3"
                       style={{ background: "linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent)", animation: "shimmer 3.5s ease-in-out infinite" }} />
                   </div>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                <div className="flex-1 flex items-center px-4 z-10"
+                  style={{ background: pals[idx % pals.length] }}>
                   <span className="font-serif font-bold text-white leading-tight"
                     style={{ fontSize: center ? (isMobile ? "1rem" : "1.1875rem") : ".875rem" }}>
                     {items[idx].name}

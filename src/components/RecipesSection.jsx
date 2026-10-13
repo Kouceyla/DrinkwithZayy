@@ -4,11 +4,12 @@ import { wheelData } from "../wheelData";
 function RecipeCard({ drink, category }) {
   return (
     <div className="rounded-2xl overflow-hidden bg-card border border-border/20 shadow-md flex flex-col">
-      <div className="h-52 bg-secondary relative overflow-hidden">
+      <div className="drink-frame h-52 relative overflow-hidden flex items-center justify-center">
         <img
           src={drink.image}
           alt={drink.name}
-          className="w-full h-full object-cover"
+          loading="lazy"
+          className="drink-illustration h-full max-w-full aspect-square"
           onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
       </div>
